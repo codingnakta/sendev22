@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { XIcon, ShuffleIcon } from './Icons';
 
 export function TeacherPanel({ students, count, preselected, onPreselect, onClose }) {
   const [mode, setMode] = useState(preselected !== null ? 'fixed' : 'random');
@@ -42,7 +43,7 @@ export function TeacherPanel({ students, count, preselected, onPreselect, onClos
       <div className="modal teacher-modal">
         <div className="modal-header teacher-header">
           <h2>교사 모드</h2>
-          <button className="close-btn" onClick={onClose}>✕</button>
+          <button className="close-btn" onClick={onClose}><XIcon /></button>
         </div>
 
         <div className="teacher-mode-toggle">
@@ -63,7 +64,7 @@ export function TeacherPanel({ students, count, preselected, onPreselect, onClos
         <div className="modal-body">
           {mode === 'random' && (
             <div className="random-info">
-              <div className="random-info-icon">🎲</div>
+              <div className="random-info-icon"><ShuffleIcon size={44} /></div>
               <p>완전한 랜덤 추첨 모드입니다.</p>
               <p>이전에 지정한 결과가 있으면 취소됩니다.</p>
             </div>

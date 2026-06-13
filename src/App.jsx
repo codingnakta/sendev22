@@ -3,6 +3,7 @@ import { useStudents } from './hooks/useStudents';
 import { SlotMachine } from './components/SlotMachine';
 import { StudentManager } from './components/StudentManager';
 import { TeacherPanel } from './components/TeacherPanel';
+import { ReelIcon, PeopleIcon, PersonIcon } from './components/Icons';
 
 function pickRandom(arr, n) {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
@@ -134,7 +135,7 @@ export default function App() {
 
       <header className="app-header">
         <h1 className="app-title" onClick={handleTitleClick} title="랜덤 발표자 추출기">
-          🎰 랜덤 발표자
+          <ReelIcon /> 랜덤 발표자
         </h1>
         <div className="header-right">
           {isTeacherFixed && (
@@ -143,7 +144,7 @@ export default function App() {
             </div>
           )}
           <button className="icon-btn" onClick={() => setShowManager(true)}>
-            학생 명단 {students.length}명
+            <PersonIcon /> 학생 명단 {students.length}명
           </button>
         </div>
       </header>
@@ -151,7 +152,7 @@ export default function App() {
       <main className="app-main">
         {students.length === 0 ? (
           <div className="empty-screen">
-            <div className="empty-icon">👥</div>
+            <div className="empty-icon"><PeopleIcon /></div>
             <p>먼저 학생 명단을 추가해주세요</p>
             <button className="primary-btn large" onClick={() => setShowManager(true)}>
               학생 추가하기

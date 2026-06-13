@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { XIcon } from './Icons';
 
 export function StudentManager({ students, picked, onAdd, onAddMany, onRemove, onResetPicked, onClose }) {
   const [tab, setTab] = useState('list');
@@ -53,7 +54,7 @@ export function StudentManager({ students, picked, onAdd, onAddMany, onRemove, o
       <div className="modal">
         <div className="modal-header">
           <h2>학생 명단 관리</h2>
-          <button className="close-btn" onClick={onClose}>✕</button>
+          <button className="close-btn" onClick={onClose}><XIcon /></button>
         </div>
 
         <div className="modal-tabs">
@@ -94,7 +95,7 @@ export function StudentManager({ students, picked, onAdd, onAddMany, onRemove, o
                         {picked.includes(s.id) && <span className="picked-badge">발표완료</span>}
                         {s.name}
                       </span>
-                      <button className="remove-btn" onClick={() => onRemove(s.id)}>✕</button>
+                      <button className="remove-btn" onClick={() => onRemove(s.id)}><XIcon size={14} /></button>
                     </div>
                   ))}
                 </div>
