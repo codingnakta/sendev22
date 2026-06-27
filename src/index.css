@@ -901,6 +901,116 @@ body {
   will-change: transform, opacity;
 }
 
+/* ─── FOOTER ─── */
+.app-footer {
+  background: var(--surface-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: var(--body-muted);
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(204, 204, 204, 0.35);
+}
+
+.footer-link:hover { color: var(--body-on-dark); }
+
+.footer-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  user-select: none;
+}
+
+.footer-manager {
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  color: rgba(204, 204, 204, 0.5);
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  color: rgba(204, 204, 204, 0.35);
+  text-align: center;
+}
+
+/* ─── DOC MODAL ─── */
+.doc-modal-overlay {
+  z-index: 250;
+}
+
+.doc-modal {
+  max-width: 520px;
+  max-height: 80vh;
+}
+
+.doc-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.doc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.doc-section-heading {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--ink);
+}
+
+.doc-section-body {
+  font-family: var(--font-text);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.15px;
+  color: var(--ink-muted-80);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.doc-updated {
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: var(--ink-muted-48);
+  padding-top: 4px;
+  border-top: 1px solid var(--hairline);
+}
+
 /* ─── ETHICS GATE ─── */
 .ethics-gate {
   min-height: 100vh;

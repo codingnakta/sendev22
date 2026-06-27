@@ -4,6 +4,7 @@ import { SlotMachine } from './components/SlotMachine';
 import { StudentManager } from './components/StudentManager';
 import { TeacherPanel } from './components/TeacherPanel';
 import { EthicsGate } from './components/EthicsGate';
+import { Footer } from './components/Footer';
 import { ReelIcon, PeopleIcon, PersonIcon } from './components/Icons';
 
 const ETHICS_KEY = 'ethics_agreed_v1';
@@ -267,6 +268,8 @@ function MainApp() {
           onClose={() => setShowTeacher(false)}
         />
       )}
+
+      <Footer />
     </div>
   );
 }
