@@ -3,7 +3,10 @@ import { useStudents } from './hooks/useStudents';
 import { SlotMachine } from './components/SlotMachine';
 import { StudentManager } from './components/StudentManager';
 import { TeacherPanel } from './components/TeacherPanel';
+import { EthicsGate } from './components/EthicsGate';
 import { ReelIcon, PeopleIcon, PersonIcon } from './components/Icons';
+
+const ETHICS_KEY = 'ethics_agreed_v1';
 
 function pickRandom(arr, n) {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
@@ -43,7 +46,7 @@ function Confetti() {
   );
 }
 
-export default function App() {
+function MainApp() {
   const { students, picked, addStudent, addStudents, removeStudent, markPicked, resetPicked, getAvailable } = useStudents();
 
   const [count, setCount] = useState(1);
@@ -74,7 +77,7 @@ export default function App() {
 
   function handleCountChange(n) {
     setCount(n);
-    setPreselected(null); // clear fixed selection when count changes
+    setPreselected(null);
   }
 
   function handleSpin() {
@@ -266,4 +269,21 @@ export default function App() {
       )}
     </div>
   );
+}
+
+export default function App() {
+  const [ethicsAgreed, setEthicsAgreed] = useState(
+    () => localStorage.getItem(ETHICS_KEY) === 'true'
+  );
+
+  function handleEthicsComplete() {
+    localStorage.setItem(ETHICS_KEY, 'true');
+    setEthicsAgreed(true);
+  }
+
+  if (!ethicsAgreed) {
+    return <EthicsGate onComplete={handleEthicsComplete} />;
+  }
+
+  return <MainApp />;
 }
